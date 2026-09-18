@@ -63,18 +63,24 @@ document.querySelector('#app').innerHTML = `
         </ul>
     </nav>
     <article class="flex items-center gap-4">
-        <section
-                class="flex py-1 px-3 border border-b-black gap-3 bg-(--search-input-color) rounded-4xl md:border-none">
-            <button>
-                <img src="${searchImg}" alt="icon">
-            </button>
-            <input type="text" placeholder="Search" class="w-full outline-none placeholder:text-neutral-300 focus:w-3xs">
+        <section class="flex justify-end w-3xs">
+            <article
+                    class="flex py-1 px-3 border border-b-black gap-3 bg-(--search-input-color) rounded-4xl md:border-none">
+                <button>
+                    <img src="${searchImg}" alt="icon">
+                </button>
+                <input type="text" placeholder="Search" class="outline-none placeholder:text-neutral-300 focus:w-3xs">
+            </article>
         </section>
         <section class="flex items-center gap-4 cursor-pointer">
-            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg id="star" class="" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.2185 1.95887C14.8354 1.57562 14.3806 1.2716 13.88 1.06418C13.3794 0.85676 12.8428 0.75 12.301 0.75C11.7591 0.75 11.2225 0.85676 10.722 1.06418C10.2214 1.2716 9.76654 1.57562 9.38347 1.95887L8.58847 2.75387L7.79347 1.95887C7.0197 1.1851 5.97024 0.750401 4.87597 0.750401C3.78169 0.750401 2.73224 1.1851 1.95847 1.95887C1.1847 2.73264 0.75 3.78209 0.75 4.87637C0.75 5.97064 1.1847 7.0201 1.95847 7.79387L2.75347 8.58887L8.58847 14.4239L14.4235 8.58887L15.2185 7.79387C15.6017 7.4108 15.9057 6.95598 16.1132 6.45539C16.3206 5.95479 16.4273 5.41823 16.4273 4.87637C16.4273 4.3345 16.3206 3.79795 16.1132 3.29735C15.9057 2.79676 15.6017 2.34194 15.2185 1.95887V1.95887Z"
                       stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
+            <svg id="active-star" class="hidden" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.2185 1.95887C14.8354 1.57562 14.3806 1.2716 13.88 1.06418C13.3794 0.85676 12.8428 0.75 12.301 0.75C11.7591 0.75 11.2225 0.85676 10.722 1.06418C10.2214 1.2716 9.76654 1.57562 9.38347 1.95887L8.58847 2.75387L7.79347 1.95887C7.0197 1.1851 5.97024 0.750401 4.87597 0.750401C3.78169 0.750401 2.73224 1.1851 1.95847 1.95887C1.1847 2.73264 0.75 3.78209 0.75 4.87637C0.75 5.97064 1.1847 7.0201 1.95847 7.79387L2.75347 8.58887L8.58847 14.4239L14.4235 8.58887L15.2185 7.79387C15.6017 7.4108 15.9057 6.95598 16.1132 6.45539C16.3206 5.95479 16.4273 5.41823 16.4273 4.87637C16.4273 4.3345 16.3206 3.79795 16.1132 3.29735C15.9057 2.79676 15.6017 2.34194 15.2185 1.95887Z" fill="black" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 1.5L2.25 4.5V15C2.25 15.3978 2.40804 15.7794 2.68934 16.0607C2.97064 16.342 3.35218 16.5 3.75 16.5H14.25C14.6478 16.5 15.0294 16.342 15.3107 16.0607C15.592 15.7794 15.75 15.3978 15.75 15V4.5L13.5 1.5H4.5Z"
                       stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -92,7 +98,7 @@ document.querySelector('#app').innerHTML = `
         </section>
     </article>
 </header>
-<main class="flex flex-col items-start mt-10 px-4 pb-12 md:flex-row md:gap-3 xl:px-0 xl:mx-11 xl:gap-6">
+<main class="flex flex-col h-full items-start mt-10 px-4 pb-12 md:flex-row md:gap-3 xl:px-0 xl:mx-11 xl:gap-6">
     <section class="flex flex-col mb-3 gap-1 md:hidden">
         <h1 class="font-[--font-bold] text-xl text-black font-bold leading-none">
             Nike Air Force 1 ‘07
@@ -103,7 +109,7 @@ document.querySelector('#app').innerHTML = `
         <span class="text-xs text-black font-medium leading-none mt-3">$115</span>
     </section>
     <section class="flex flex-col w-full gap-3 md:w-fit xl:grid xl:grid-cols-2">
-        <picture class="relative w-full md:w-[396px] after:content-[attr(data-picture)] after:absolute after:top-4 after:left-4 after:bg-white
+        <picture class="relative w-full md:w-[396px] after:content-[attr(data-picture)] after:absolute after:top-4 after:left-4 after:py-2 after:px-3 after:bg-white
             after:rounded-[52px] after:text-black after:text-xs after:font-medium"
                  data-picture="★ Highly Rated">
             <img src="${card1Img}" alt="product-photo" class="w-full">
@@ -118,7 +124,7 @@ document.querySelector('#app').innerHTML = `
             <img src="${card4Img}" alt="product-photo" class="w-full">
         </picture>
     </section>
-    <section class="w-full flex flex-col mt-3 gap-6 md:flex-1">
+    <section class="w-full flex flex-col mt-3 gap-6 md:flex-1 xl:max-w-sm">
         <article class="hidden flex-col mb-6 gap-1 md:flex">
             <h1 class="font-bold] text-xl text-black font-bold leading-none">
                 Nike Air Force 1 ‘07
@@ -129,10 +135,10 @@ document.querySelector('#app').innerHTML = `
             <span class="text-xs text-black font-medium leading-none mt-3">$115</span>
         </article>
         <article class="flex gap-2 md:mt-0">
-            <picture class="w-[52px]">
+            <picture id="white-shoes" class="w-[52px]">
                 <img src="${colorWhiteImg}" alt="card-photo" class="w-full">
             </picture>
-            <picture class="w-[52px]">
+            <picture id="black-shoes" class="w-[52px]">
                 <img src="${colorBlackImg}" alt="card-photo" class="w-full">
             </picture>
         </article>
@@ -240,24 +246,45 @@ document.querySelector('#app').innerHTML = `
 </footer>
 `
 
-const buttonSwitch = document.getElementById('button-switch');
 const favorite = document.getElementById('favorite');
 const favoriteActive = document.getElementById('favorite-active');
 const sidebar = document.getElementById('sidebar');
+const star = document.getElementById('star');
+const activeStar = document.getElementById('active-star');
 
 // Создаем переключение сердечка в кнопке "favorite"
 
-buttonSwitch.addEventListener('click', () => {
+favorite.addEventListener('click', () => {
     favorite.classList.add('hidden');
     favoriteActive.classList.remove('hidden');
     favoriteActive.classList.add('flex');
+    star.classList.add('hidden');
+    activeStar.classList.remove('hidden');
 });
 
 // И обратное переключение
 favoriteActive.addEventListener('click', () => {
     favorite.classList.remove('hidden');
     favoriteActive.classList.add('hidden');
+    star.classList.remove('hidden');
+    activeStar.classList.add('hidden');
 });
+
+// Переключаем сердечко по клику в хедере
+star.addEventListener('click', () => {
+    favorite.classList.add('hidden');
+    favoriteActive.classList.remove('hidden');
+    favoriteActive.classList.add('flex');
+    star.classList.add('hidden');
+    activeStar.classList.remove('hidden');
+});
+// И обратно
+    activeStar.addEventListener('click', () => {
+        favorite.classList.remove('hidden');
+        favoriteActive.classList.add('hidden');
+        star.classList.remove('hidden');
+        activeStar.classList.add('hidden');
+    });
 
 // Открываем меню на мобильной версии
 document.getElementById('open-menu').addEventListener('click', () => {
