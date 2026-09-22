@@ -63,13 +63,13 @@ document.querySelector('#app').innerHTML = `
         </ul>
     </nav>
     <article class="flex items-center gap-4">
-        <section class="flex justify-end w-3xs">
+        <section class="flex w-[150px] justify-end  sm:w-3xs">
             <article
-                    class="flex py-1 px-3 border border-b-black gap-3 bg-(--search-input-color) rounded-4xl md:border-none">
-                <button>
-                    <img src="${searchImg}" alt="icon">
+                    class="flex max-w-fit py-1 px-1 border border-b-black bg-(--search-input-color) rounded-4xl md:border-none sm:px-3 sm:gap-3">
+                <button class="w-4">
+                    <img src="${searchImg}" alt="icon" class="w-full">
                 </button>
-                <input type="text" placeholder="Search" class="outline-none placeholder:text-neutral-300 focus:w-3xs">
+                <input type="text" placeholder="Search" class="outline-none w-[115px] placeholder:text-neutral-300 focus:w-full md:focus:w-[240px] sm:focus:w-3xs">
             </article>
         </section>
         <section class="flex items-center gap-4 cursor-pointer">
@@ -98,9 +98,9 @@ document.querySelector('#app').innerHTML = `
         </section>
     </article>
 </header>
-<main class="flex flex-col h-full items-start mt-10 px-4 pb-12 md:flex-row md:gap-3 xl:px-0 xl:mx-11 xl:gap-6">
+<main class="flex flex-col items-start mt-10 px-4 pb-12 md:flex-row md:justify-center md:gap-3 xl:px-0 xl:mx-11 xl:gap-6 2xl:h-screen 2xl:mx-auto">
     <section class="flex flex-col mb-3 gap-1 md:hidden">
-        <h1 class="font-[--font-bold] text-xl text-black font-bold leading-none">
+        <h1 class="font-[--font-bold] text-xl text-black leading-none">
             Nike Air Force 1 ‘07
         </h1>
         <span class="text-xs text-neutral-500 font-medium leading-none">
@@ -239,11 +239,13 @@ document.querySelector('#app').innerHTML = `
         </article>
     </section>
 </main>
+<section class="flex flex-col h-full justify-end">
 <footer class="flex justify-center items-center py-7">
     <span class="text-xs text-neutral-500 font-medium">
         © 2025 Nike, Inc. All Rights Reserved
     </span>
 </footer>
+</section>
 `
 
 const favorite = document.getElementById('favorite');
